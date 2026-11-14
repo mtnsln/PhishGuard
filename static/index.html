@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PhishGuard checks URL characteristics and explains potential phishing signals.">
+  <meta name="theme-color" content="#0b1020">
+  <title>PhishGuard — URL risk analysis</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="PhishGuard home"><span class="brand-mark">P</span> PhishGuard</a>
+    <span class="top-note">URL risk analysis · v2.0.0</span>
+  </header>
+  <main class="layout">
+    <section class="intro">
+      <p class="eyebrow">LINK CHECKER</p>
+      <h1>Understand the link<br><span>before you trust it.</span></h1>
+      <p class="lead">Inspect URL structure and receive an explainable breakdown of potential phishing signals. PhishGuard analyses the submitted text and never opens the destination.</p>
+    </section>
+    <section class="panel" aria-labelledby="scan-title">
+      <div class="panel-heading">
+        <div><p class="eyebrow">NEW ANALYSIS</p><h2 id="scan-title">Check a URL</h2></div>
+        <span class="status-dot">Offline analysis</span>
+      </div>
+      <form id="scan-form">
+        <label for="url-input">Website address</label>
+        <div class="input-row">
+          <input id="url-input" name="url" type="text" placeholder="https://example.com/login" maxlength="2048" autocomplete="off" spellcheck="false" required>
+          <button id="scan-button" type="submit">Analyse link <span aria-hidden="true">→</span></button>
+        </div>
+        <p class="hint">Paste the URL as text. PhishGuard will not visit it or send it to a third-party scanner.</p>
+      </form>
+      <div id="error" class="error" role="alert" hidden></div>
+      <section id="result" class="result" aria-live="polite" hidden>
+        <div class="result-top">
+          <div><p class="eyebrow">ASSESSMENT</p><h3 id="risk-level">—</h3></div>
+          <div class="score"><strong id="risk-score">0</strong><span>/ 100</span></div>
+        </div>
+        <div class="meter" role="meter" aria-label="Heuristic risk score" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="meter-fill"></div></div>
+        <p id="summary" class="summary"></p>
+        <div class="result-meta"><span>HOST</span><code id="hostname"></code></div>
+        <div class="result-meta"><span>DOMAIN ESTIMATE</span><code id="registrable-domain"></code></div>
+        <h4>Signals found</h4>
+        <ul id="findings" class="findings"></ul>
+        <p id="disclaimer" class="disclaimer"></p>
+      </section>
+    </section>
+    <section class="notes">
+      <div><span class="note-number">01</span><h3>Text-based checks</h3><p>Checks URL structure, hostname patterns, encoding and selected brand lookalikes.</p></div>
+      <div><span class="note-number">02</span><h3>Explainable results</h3><p>Each triggered rule includes a reason and its contribution to the heuristic score.</p></div>
+      <div><span class="note-number">03</span><h3>No safety guarantee</h3><p>A low score does not prove a website is legitimate. Verify important links independently.</p></div>
+    </section>
+  </main>
+  <footer>PhishGuard is an independent educational security project. It is not a substitute for security software or human review.</footer>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>

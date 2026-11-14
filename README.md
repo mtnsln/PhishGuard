@@ -1,3 +1,4 @@
+[![PhishGuard Tests](https://github.com/mtnsln/PhishGuard/actions/workflows/main.yml/badge.svg)](https://github.com/mtnsln/PhishGuard/actions/workflows/main.yml)
 # PhishGuard
 
 **Explainable URL risk analysis without opening the submitted website.**
